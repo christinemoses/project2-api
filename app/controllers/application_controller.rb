@@ -8,7 +8,10 @@ class ApplicationController < ActionController::API
 
   # Use Token Authentication
   include ActionController::HttpAuthentication::Token::ControllerMethods
-  before_action :authenticate
+  before_action :authenticate # all methods in a controller are called actions
+  # means the method authenticate will always run and any application inheriting from it
+  # if it doesn't exist, it will return false and will never get to our action
+  # rails stack will terminate the action early
   def authenticate
     @current_user = authenticate_or_request_with_http_token do |token, _opts|
       User.find_by token: token
@@ -18,7 +21,7 @@ class ApplicationController < ActionController::API
   attr_reader :current_user
 
   # Require SSL for deployed applications
-  force_ssl if: :ssl_configured?
+  force_ssl if: :ssl_configured? # ssl has to be there or it will stop working
   def ssl_configured?
     !Rails.env.development?
   end

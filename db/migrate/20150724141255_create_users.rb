@@ -10,3 +10,5 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 end
+
+# password_digest

@@ -6,5 +6,16 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :edit]
 
-  resources :books, except: [:new, :edit]
+  resources :holidays, except: [:new, :edit]
 end
+
+# 3 things happening:
+# register
+# login
+# logout
+
+# 2 resources:
+# new
+# edit
+
+

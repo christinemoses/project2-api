@@ -38,7 +38,7 @@ curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc
 curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
 ```
 
-# Books
+# Holidays
 
 ## List
 
@@ -56,9 +56,8 @@ curl http://localhost:3000/users
 
 ```
 curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
+  "holiday": {
+    "name":"Birthday",
   }
-}'  http://localhost:3000/books
+}'  http://localhost:3000/holidays
 ```
