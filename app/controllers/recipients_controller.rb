@@ -19,7 +19,7 @@ class RecipientsController < ApplicationController
     @recipient = current_user.holidays.find(params[:holiday_id]).recipients.new(recipient_params)
 
     if @recipient.save
-      render json: @recipient, status: :created, location: @recipient
+      render json: @recipient, status: :created
     else
       render json: @recipient.errors, status: :unprocessable_entity
     end

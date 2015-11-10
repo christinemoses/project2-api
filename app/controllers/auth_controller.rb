@@ -19,7 +19,7 @@ class AuthController < ApplicationController
     @user = User.create(credentials)
 
     if @user.valid?
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end

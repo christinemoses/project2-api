@@ -6,7 +6,7 @@
 ```
 curl --include --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "ccc@ccc.com",
+    "email": "aaa@aaa.com",
     "password": "abc123",
     "password_confirmation": "abc123"
   }
@@ -18,7 +18,7 @@ curl --include --request POST --header "Content-Type: application/json" -d '{
 ```
 curl --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "cm1@cm1.com",
+    "email": "aaa@aaa.com",
     "password": "abc123"
   }
 }' http://localhost:3000/login
@@ -27,15 +27,7 @@ curl --request POST --header "Content-Type: application/json" -d '{
 ## Logout
 
 ```
-curl --request DELETE --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http://localhost:3000/logout/2
-```
-
-# Users
-
-## List
-
-```
-curl --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http://localhost:3000/users
+curl --request DELETE --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" http://localhost:3000/logout/2
 ```
 
 # Holidays
@@ -43,17 +35,36 @@ curl --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http
 ## List
 
 ```
-curl --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http://localhost:3000/holidays
-```
-
-**OR**
-
-```
-curl http://localhost:3000/holidays
+curl --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" http://localhost:3000/holidays
 ```
 
 ## Create
 
 ```
-curl --request POST --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" --header "Content-Type: application/json" -d '{"holiday": {"name":"Christmas"}}' http://localhost:3000/holidays
+curl --request POST --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" --header "Content-Type: application/json" -d '{"holiday": {"name":"Christmas"}}' http://localhost:3000/holidays
 ```
+# Recipients
+
+## List
+
+```
+curl --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" http://localhost:3000/holidays/1/recipients
+```
+## Create
+
+```
+curl --request POST --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" --header "Content-Type: application/json" -d '{"recipient": {"name":"Gabe"}}' http://localhost:3000/holidays/1/recipients
+```
+# Gift Ideas
+
+## List
+
+```
+curl --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" http://localhost:3000/holidays/1/recipients/1/gift_ideas
+```
+## Create
+
+```
+curl --request POST --header "Authorization: Token token=3e6d67156572e62956e3158c9e58fc72" --header "Content-Type: application/json" -d '{"gift_idea": {"description":"Giant box of Legos"}}' http://localhost:3000/holidays/1/recipients/1/gift_ideas
+```
+
