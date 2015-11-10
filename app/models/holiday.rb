@@ -1,4 +1,5 @@
-#
 class Holiday < ActiveRecord::Base
-  belongs_to :user #inverse of?
+  belongs_to :user
+
+  has_many :recipients
 end

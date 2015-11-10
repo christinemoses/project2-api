@@ -2,21 +2,21 @@ class RecipientsController < ApplicationController
   before_action :set_recipient, only: [:update, :destroy, :show]
 
 
-  # GET /recipients
+  # GET /holidays/1/recipients
   def index
-    @recipients = current_user.recipients
+    @recipients = current_user.holidays.find(params[:holiday_id]).recipients
 
     render json: @recipients
   end
 
-  # GET /recipients/1
+  # GET /holidays/1/recipients/1
   def show
     render json: @recipient
   end
 
-  # POST /recipients
+  # POST /holidays/1/recipients
   def create
-    @recipient = current_user.recipients.new(recipient_params)
+    @recipient = current_user.holidays.find(params[:holiday_id]).recipients.new(recipient_params)
 
     if @recipient.save
       render json: @recipient, status: :created, location: @recipient
@@ -25,7 +25,7 @@ class RecipientsController < ApplicationController
     end
   end
 
-  # PATCH /recipients/1
+  # PATCH /holidays/1/recipients/1
   def update
     if @recipient.update(recipient_params)
       head :no_content
@@ -34,7 +34,7 @@ class RecipientsController < ApplicationController
     end
   end
 
-  # DELETE /recipients/1
+  # DELETE /holidays/1/recipients/1
   def destroy
     @recipient.destroy
 
@@ -42,7 +42,7 @@ class RecipientsController < ApplicationController
   end
 
   def set_recipient
-    @recipient = current_user.recipients.find(params[:id])
+    @recipient = current_user.holidays.find(params[:holiday_id]).recipients.find(params[:id])
   end
 
   def recipient_params

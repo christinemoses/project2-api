@@ -1,4 +1,3 @@
-#
 class HolidaysController < ApplicationController
   before_action :set_holiday, only: [:update, :destroy, :show]
 
