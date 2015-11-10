@@ -1,18 +1,16 @@
 #
 class HolidaysController < ApplicationController
-  before_action :set_holiday, only: [:update, :destroy]
+  before_action :set_holiday, only: [:update, :destroy, :show]
 
   # GET /holidays
   def index
-    @holidays = Holiday.all
+    @holidays = current_user.holidays
 
     render json: @holidays
   end
 
   # GET /holidays/1
   def show
-    @holiday = Holiday.find(params[:id])
-
     render json: @holiday
   end
 

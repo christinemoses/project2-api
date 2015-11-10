@@ -18,8 +18,8 @@ curl --include --request POST --header "Content-Type: application/json" -d '{
 ```
 curl --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
+    "email": "cm1@cm1.com",
+    "password": "abc123"
   }
 }' http://localhost:3000/login
 ```
@@ -27,7 +27,7 @@ curl --request POST --header "Content-Type: application/json" -d '{
 ## Logout
 
 ```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
+curl --request DELETE --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http://localhost:3000/logout/2
 ```
 
 # Users
@@ -35,7 +35,7 @@ curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc
 ## List
 
 ```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+curl --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http://localhost:3000/users
 ```
 
 # Holidays
@@ -43,21 +43,17 @@ curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http
 ## List
 
 ```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+curl --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" http://localhost:3000/holidays
 ```
 
 **OR**
 
 ```
-curl http://localhost:3000/users
+curl http://localhost:3000/holidays
 ```
 
 ## Create
 
 ```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "holiday": {
-    "name":"Birthday",
-  }
-}'  http://localhost:3000/holidays
+curl --request POST --header "Authorization: Token token=7af36b791fdd935dabbad6eebc1a7c2d" --header "Content-Type: application/json" -d '{"holiday": {"name":"Christmas"}}' http://localhost:3000/holidays
 ```

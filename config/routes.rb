@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   post '/login' => 'auth#login'
   delete '/logout/:id' => 'auth#logout'
 
+  resources :holidays, except: [:new, :edit]
+
+  resources :recipients, except: [:new, :edit]
+
   resources :users, except: [:new, :edit]
 
-  resources :holidays, except: [:new, :edit]
 end
 
 # 3 things happening:
