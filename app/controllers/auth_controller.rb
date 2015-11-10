@@ -6,7 +6,7 @@ class AuthController < ApplicationController
   def login
     @user = User.authenticate credentials[:email], credentials[:password]
     if @user
-      render json: @user, serializer: LoginUserSerializer, root: 'user' #serializer is a way to easily render json for data  to send to the front end
+      render json: @user, serializer: LoginUserSerializer, root: 'user' # serializer is a way to easily render json for data  to send to the front end
       # in this case it's sending the token
       # if it fails sends back the unauthorized header
     else
